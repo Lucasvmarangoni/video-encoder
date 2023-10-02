@@ -94,6 +94,7 @@ func (vu *VideoUpload) ProcessUpload(concurrency int, doneUpload chan string) er
 			break
 		}
 	}
+	return nil
 }
 
 func (vu *VideoUpload) uploadWorker(in chan int, returnChan chan string, uploadClient *storage.Client, ctx context.Context) {
