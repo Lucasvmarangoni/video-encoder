@@ -103,12 +103,12 @@ func (vu *VideoUpload) uploadWorker(in chan int, returnChan chan string, uploadC
 
 		if err != nil {
 			vu.Errors = append(vu.Errors, vu.Paths[x])
-			log.Printf("error during the upload: %v. Error?: %v", vu.Paths[x], err)
+			log.Printf("error during the upload: %v. Error: %v", vu.Paths[x], err)
 			returnChan <- err.Error()
 		}
 		returnChan <- ""
 	}
-	returnChan <- "uploaded completed"
+	returnChan <- "upload completed"
 }
 
 func getClientUpload() (*storage.Client, context.Context, error) {
